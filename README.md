@@ -20,3 +20,13 @@ Laravel Coffeshop Management System
         <link href="{{ asset('assets/css/style.css') }}">
     4. Do for both css and js files 
     4. Edit the login, Register and home.blade with the designs from our theme's html files (the login, register & index.html files.)
+
+3. Displaying Products in the home page (dynamic data)
+    1. Create Product model & migration file
+    2. Edit the model as well as the migration file with the data required to create the Product table
+    3. Run migrations to create the table
+    4. Create some products for testing
+    5. Edit the index fn in the Home controller to get and return the products
+    6. In the HTML file (home.blade), loop thru products to display them dynamically, (@foreach ($Products as Product))
+        {{ Product->name }}
+    @endforeach
