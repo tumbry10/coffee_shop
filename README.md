@@ -30,3 +30,11 @@ Laravel Coffeshop Management System
     6. In the HTML file (home.blade), loop thru products to display them dynamically, (@foreach ($Products as Product))
         {{ Product->name }}
     @endforeach
+
+4. Displaying a Single Product {Link for product details}
+    1. Create route to show a single product in the web.php, pass in the {id} in the route
+    2. Add this route to the anchor tag in the HTML file (home blade)
+    3. Create the ProductController
+    4. In the ProductController, create the function to display the single product details i.e singleProduct{id} function NB. Remember to import the Product Model
+    5. Create the view blade to display singleproduct details, i.e productSingle.blade.php
+    6. Edit the blade to inherit from app.blade and also to dynamicaly display product details for the passed product id
