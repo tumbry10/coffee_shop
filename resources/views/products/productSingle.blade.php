@@ -15,6 +15,13 @@
     </div>
 </section>
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
 <section class="ftco-section">
     <div class="container">
         <div class="row">
@@ -26,35 +33,15 @@
                 <p class="price"><span>${{ $product->price }}</span></p>
                 <p>{{ $product->description }}</p>
                 <p></p>
-                <!--div class="row mt-4">
-                    <div class="col-md-6">
-                        <div class="form-group d-flex">
-                            <div class="select-wrap">
-                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select name="" id="" class="form-control">
-                                    <option value="">Small</option>
-                                    <option value="">Medium</option>
-                                    <option value="">Large</option>
-                                    <option value="">Extra Large</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="input-group col-md-6 d-flex mb-3">
-                        <span class="input-group-btn mr-2">
-                            <button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-                                <i class="icon-minus"></i>
-                            </button>
-                        </span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-                        <span class="input-group-btn ml-2">
-                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                <i class="icon-plus"></i>
-                            </button>
-                        </span>
-                    </div>
-                </div-->
+                <form action="{{ route ('add.cart', $product->id) }}" method="POST">
+                    @csrf 
+                    <input type="text" name="prod_id" value="{{ $product->id }}">
+                    <input type="text" name="name" value="{{ $product->name }}">
+                    <input type="text" name="price" value="{{ $product->price }}">
+                    <input type="text" name="description" value="{{ $product->description }}">
+                    <input type="text" name="image" value="{{ $product->image }}">
+                    <input type="submit" value="Add to Cart" class="btn btn-primary py-3 px-5">
+                </form>
                 <p><a href="cart.html" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
             </div>
         </div>

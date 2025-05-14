@@ -49,3 +49,14 @@ Laravel Coffeshop Management System
      6. Run migrations : php artisan migrate
      7. In the ProductController, update the singleProduct function to get the related products
      8. In the productSingle.blade.php, loop thru the related products and display them
+
+6. Adding Product to Cart 
+     1. Add the add to cart link inside a form to handle form submission
+     2. Create a route for this form post method
+     3. Create the Contoller Function for this route (form submission process) ie addtoCart
+     4. Create the Cart model and migration file
+     5. Edit the Cart Model fillables 
+     6. Edit the migration file to include all the cart model columns
+     7. Run migrations to create the cart table
+     8. Test adding an item to cart
+     9. Add the return redirect to the same page ie, return redirect()->back()->with('success', 'Item added to Cart');
