@@ -60,3 +60,11 @@ Laravel Coffeshop Management System
      7. Run migrations to create the cart table
      8. Test adding an item to cart
      9. Add the return redirect to the same page ie, return redirect()->back()->with('success', 'Item added to Cart');
+
+7. Validating Cart
+     1. A user can only add a specific product to the cart only once.
+     2. First hide the inputs fields of the add to cart form. change fields type from text to hidden
+     3. For validating the cart, validate in the product controller. 
+     4. Make a counter wc count the # of the current product present in the cart with the same user id. 
+     5. If its != 0, then the add to cart button will be disabled. 
+     6. Otherwise, its active

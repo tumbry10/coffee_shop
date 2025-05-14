@@ -20,8 +20,13 @@ class ProductsController extends Controller
             ->where('id', '!=', $id)->take('4')
             ->orderBy('id', 'desc')
             ->get();
+        
+        //Checking for product in cart
+        $checkInCart = Cart::where('prod_id', $id)
+            ->where('user_id', Auth::user()->id)
+            ->count();
 
-        return view('products.productSingle', compact('product', 'relatedProducts'));
+        return view('products.productSingle', compact('product', 'relatedProducts', 'checkInCart'));
     }
 
     //Add to Cart function
@@ -35,7 +40,7 @@ class ProductsController extends Controller
             'description' => $request-> description,
         ]);
 
-        echo "Item Added to Cart";
+        //echo "Item Added to Cart";
         return redirect()->back()->with('success', 'Item Added to Cart');
     }
 }

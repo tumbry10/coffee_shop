@@ -35,14 +35,20 @@
                 <p></p>
                 <form action="{{ route ('add.cart', $product->id) }}" method="POST">
                     @csrf 
-                    <input type="text" name="prod_id" value="{{ $product->id }}">
-                    <input type="text" name="name" value="{{ $product->name }}">
-                    <input type="text" name="price" value="{{ $product->price }}">
-                    <input type="text" name="description" value="{{ $product->description }}">
-                    <input type="text" name="image" value="{{ $product->image }}">
-                    <input type="submit" value="Add to Cart" class="btn btn-primary py-3 px-5">
+                    <input type="hidden" name="prod_id" value="{{ $product->id }}">
+                    <input type="hidden" name="name" value="{{ $product->name }}">
+                    <input type="hidden" name="price" value="{{ $product->price }}">
+                    <input type="hidden" name="description" value="{{ $product->description }}">
+                    <input type="hidden" name="image" value="{{ $product->image }}">
+                    <p class="mt-5">
+                        @if ($checkInCart == 0)
+                            <input type="submit" value="Add to Cart" class="btn btn-primary py-3 px-5">
+                        @else
+                            <input disabled value="Added to Cart" class="btn btn-warning text-white py-3 px-5" style ="background-color: black">
+                        @endif
+                    </p>
+                    
                 </form>
-                <p><a href="cart.html" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
             </div>
         </div>
     </div>
