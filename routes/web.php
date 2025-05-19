@@ -14,3 +14,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('products/product-single/{id}', [App\Http\Controllers\Products\ProductsController::class, 'singleProduct'])->name('product.single');
 //Add to Cart single
 Route::post('products/product-single/{id}', [App\Http\Controllers\Products\ProductsController::class, 'addtoCart'])->name('add.cart');
+
+//Viewing Cart
+Route::get('products/cart', [App\Http\Controllers\Products\ProductsController::class, 'cart'])->name('cart');

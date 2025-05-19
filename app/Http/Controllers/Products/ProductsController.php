@@ -21,7 +21,7 @@ class ProductsController extends Controller
             ->orderBy('id', 'desc')
             ->get();
         
-        //Checking for product in cart
+        //Checking for product in cart if a certain product is more than one it shldnt allow user to add it to cart again
         $checkInCart = Cart::where('prod_id', $id)
             ->where('user_id', Auth::user()->id)
             ->count();
@@ -42,5 +42,13 @@ class ProductsController extends Controller
 
         //echo "Item Added to Cart";
         return redirect()->back()->with('success', 'Item Added to Cart');
+    }
+
+    //Viewing the Cart
+    public function cart() {
+        $cartItems = Cart::where('user_id', Auth::user()->id)
+            ->orderBy('id', 'desc')->get();
+        
+        return view('products/cart', compact('cartItems'));
     }
 }

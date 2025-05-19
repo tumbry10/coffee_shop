@@ -68,3 +68,12 @@ Laravel Coffeshop Management System
      4. Make a counter wc count the # of the current product present in the cart with the same user id. 
      5. If its != 0, then the add to cart button will be disabled. 
      6. Otherwise, its active
+
+8. Displaying Products in Cart
+      1. Modify the cart link in the nav to be active
+      2. Create the 'cart' route in the web.php
+      3. Create the 'cart' function in the ProductController 
+      4. In the cart function, get the products in the cart for the current user
+      5. Pass the products to the cart blade
+      6. Create the cart.blade.php in products folder
+      7. In the cart blade, loop thru the products and display them
